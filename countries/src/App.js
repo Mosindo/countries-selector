@@ -58,9 +58,9 @@ class App extends React.Component{
       <h1 className="m-4">Countries selectors</h1>
       <div className="col-12 pays m-2 " >
         <Search onChange={this.searchInput} onClick={this.searchButton}></Search>
-        <Button  onClick={()=>this.getCountry("france")}>France </Button>
+        {/*<Button  onClick={()=>this.getCountry("france")}>France </Button>
         <Button onClick={()=>this.getCountry("brazil")}>Brazil</Button>
-        <Button onClick={()=>this.getCountry("Croatia")}>Croatia</Button>
+        <Button onClick={()=>this.getCountry("Croatia")}>Croatia</Button>*/}
       </div>
 
       <Card className="col-12" 

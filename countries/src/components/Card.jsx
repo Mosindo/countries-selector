@@ -5,7 +5,7 @@ class Card extends React.Component {
     render() {
         return (
             <div>
-                <div className="card" style={{width: "400px"}}>
+                <div className="card" >
                 <img src={this.props.flag} class="card-img-top" alt="..."/>
                     <div className="card-body">
                         <p className="card-text">Country : {this.props.name}</p>
