@@ -2,7 +2,8 @@ import React, { Children } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from "./components/Button";
-import Card from "./components/Card"
+import Card from "./components/Card";
+import Search from "./components/Search";
 
 class App extends React.Component{
   constructor() {
@@ -12,9 +13,12 @@ class App extends React.Component{
     capital : "",
     flag : "",
     population: "",
-    region: ""
+    region: "",
+    searchValue:"",
     };
-    this.getCountry=this.getCountry.bind(this)
+    this.getCountry = this.getCountry.bind(this);
+    this.searchInput = this.searchInput.bind(this);
+    this.searchButton = this.searchButton.bind(this);
   }
 
   componentDidMount(){
@@ -36,12 +40,24 @@ class App extends React.Component{
       })
     })
   }
+  searchInput(e){
+    this.setState({
+      searchValue: e.target.value
+      
+    })
+    console.log({searchValue: e.target.value})
+  }
+
+  searchButton(){
+    this.getCountry(this.state.searchValue)
+  }
 
   render(){
     return (
     <div className="row justify-content-center">
       <h1 className="m-4">Countries selectors</h1>
       <div className="col-12 pays m-2 " >
+        <Search onChange={this.searchInput} onClick={this.searchButton}></Search>
         <Button  onClick={()=>this.getCountry("france")}>France </Button>
         <Button onClick={()=>this.getCountry("brazil")}>Brazil</Button>
         <Button onClick={()=>this.getCountry("Croatia")}>Croatia</Button>
