@@ -21,10 +21,8 @@ class App extends React.Component{
     this.searchButton = this.searchButton.bind(this);
   }
 
-  componentDidMount(){
-    fetch('https://restcountries.eu/rest/v2/name/france')
-  .then(response => response.json()) // on transforme la donnée reçue en JSON 
-  .then(result => {console.log(result[0].capital) }); // on détaille l'action à exécuter sur ce JSON
+  componentDidMount() {
+    this.getCountry("france");
   }
 
   getCountry(country){
